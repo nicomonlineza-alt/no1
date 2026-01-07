@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-black text-white;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-button {
+    background: rgba(0, 255, 127, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 127, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .glass-button:hover {
+    background: rgba(0, 255, 127, 0.2);
+    box-shadow: 0 0 30px rgba(0, 255, 127, 0.5);
+    border-color: rgba(0, 255, 127, 0.6);
+  }
+
+  .neon-text {
+    color: #00ff7f;
+    text-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(0, 255, 127, 0.4);
+  }
+
+  .neon-glow-strong {
+    box-shadow: 0 0 30px rgba(0, 255, 127, 0.7);
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(0, 255, 127, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(0, 255, 127, 0.7);
+    }
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(45deg, #00ff7f, #00ffff, #00ff7f);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  /* Neomorphism effects for dark theme */
+  .neo-card {
+    background: #0a0a0a;
+    border-radius: 20px;
+    box-shadow: 
+      -8px -8px 16px rgba(30, 30, 30, 0.2),
+      8px 8px 16px rgba(0, 0, 0, 0.8);
+  }
+
+  .neo-card-inset {
+    background: #0a0a0a;
+    border-radius: 20px;
+    box-shadow: 
+      inset -4px -4px 8px rgba(30, 30, 30, 0.1),
+      inset 4px 4px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  .neo-button {
+    background: #0f0f0f;
+    border-radius: 12px;
+    box-shadow: 
+      -6px -6px 12px rgba(30, 30, 30, 0.3),
+      6px 6px 12px rgba(0, 0, 0, 0.9);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 255, 127, 0.1);
+  }
+
+  .neo-button:hover {
+    box-shadow: 
+      -8px -8px 16px rgba(30, 30, 30, 0.4),
+      8px 8px 16px rgba(0, 0, 0, 0.95);
+    border-color: rgba(0, 255, 127, 0.3);
+  }
+
+  .neo-button:active {
+    box-shadow: 
+      inset -4px -4px 8px rgba(30, 30, 30, 0.2),
+      inset 4px 4px 8px rgba(0, 0, 0, 0.7);
+  }
+
+  .neo-input {
+    background: #0a0a0a;
+    border-radius: 12px;
+    box-shadow: 
+      inset -3px -3px 6px rgba(30, 30, 30, 0.15),
+      inset 3px 3px 6px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .neo-input:focus {
+    box-shadow: 
+      inset -4px -4px 8px rgba(30, 30, 30, 0.2),
+      inset 4px 4px 8px rgba(0, 0, 0, 0.8),
+      0 0 0 2px rgba(0, 255, 127, 0.3);
+    border-color: rgba(0, 255, 127, 0.5);
+    outline: none;
+  }
+
+  .neo-flat {
+    background: linear-gradient(145deg, #0d0d0d, #0a0a0a);
+    border-radius: 16px;
+    box-shadow: 
+      -5px -5px 10px rgba(25, 25, 25, 0.25),
+      5px 5px 10px rgba(0, 0, 0, 0.85);
+  }
+
+  .neo-elevated {
+    background: linear-gradient(145deg, #0f0f0f, #0b0b0b);
+    border-radius: 20px;
+    box-shadow: 
+      -10px -10px 20px rgba(30, 30, 30, 0.3),
+      10px 10px 20px rgba(0, 0, 0, 0.9),
+      inset -1px -1px 2px rgba(30, 30, 30, 0.1),
+      inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .neo-pressed {
+    background: #0a0a0a;
+    border-radius: 12px;
+    box-shadow: 
+      inset -6px -6px 12px rgba(25, 25, 25, 0.2),
+      inset 6px 6px 12px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Additional neomorphism tactile button for voice control */
+  .neo-tactile-button {
+    background: linear-gradient(145deg, #0f0f0f, #0b0b0b);
+    border-radius: 50%;
+    box-shadow: 
+      -8px -8px 16px rgba(30, 30, 30, 0.3),
+      8px 8px 16px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(0, 255, 127, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neo-tactile-button:hover {
+    box-shadow: 
+      -10px -10px 20px rgba(30, 30, 30, 0.4),
+      10px 10px 20px rgba(0, 0, 0, 0.95);
+    border-color: rgba(0, 255, 127, 0.3);
+  }
+
+  .neo-tactile-button:active {
+    box-shadow: 
+      inset -4px -4px 8px rgba(30, 30, 30, 0.2),
+      inset 4px 4px 8px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Animation utilities */
+  @keyframes slide-in-from-bottom {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-in {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+  }
+
+  .slide-in-from-bottom-2 {
+    animation-name: slide-in-from-bottom;
+  }
+}
